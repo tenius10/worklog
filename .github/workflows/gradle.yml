@@ -55,4 +55,4 @@ jobs:
         script: |
           pm2 stop 0
           pm2 del 0
-          pm2 start build/libs/server.jar
+          pm2 start "java -jar build/libs/server.jar"
