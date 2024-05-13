@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://localhost:3306/ballbot?autoReconnect=true&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8"
-    username: ballbot
-    password: ballbot3451
+    url: "jdbc:mysql://localhost:3306/happy?autoReconnect=true&useUnicode=true&serverTimezone=Asia/Seoul&characterEncoding=utf8"
+    username: root
+    password: Ballbot3451!
   jpa:
     database: mysql
     hibernate:
