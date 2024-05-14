@@ -39,8 +39,8 @@ jobs:
     - name: Copy files to server
       uses: appleboy/scp-action@master
       with:
-        host: 43.201.70.194
-        username: ec2-user
+        host: 3.34.255.78
+        username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
         source: "build/libs/server.jar"
@@ -49,8 +49,8 @@ jobs:
     - name: Restarting Server
       uses: appleboy/ssh-action@master
       with:
-        host: 43.201.70.194
-        username: ec2-user
+        host: 3.34.255.78
+        username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           pm2 stop 0
