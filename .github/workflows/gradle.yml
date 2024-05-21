@@ -4,22 +4,17 @@
 # documentation.
 # This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
-
 name: Java CI with Gradle
-
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
-
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -27,19 +22,17 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-
     # Configure Gradle for optimal use in GiHub Actions, including caching of downloaded dependencies.
     # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
-
     - name: Build with Gradle Wrapper
       run: ./gradlew build -x test
       
     - name: Copy files to server
       uses: appleboy/scp-action@master
       with:
-        host: 3.34.255.78
+        host: 52.79.171.157
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: 22
@@ -49,7 +42,7 @@ jobs:
     - name: Restarting Server
       uses: appleboy/ssh-action@master
       with:
-        host: 3.34.255.78
+        host: 52.79.171.157
         username: ubuntu
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
